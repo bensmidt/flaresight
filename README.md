@@ -13,7 +13,6 @@
     1. Forest Smoke: 21 videos
     1. Other: 2 videos
 - VisiFire Annotated: [[paper](https://www.sciencedirect.com/science/article/pii/S2352340922001378)] [[dataset](https://zenodo.org/records/5893854)]
-
     1. 2,684 annotated frames of 12 commonly used videos from VisiFire dataset
 - BoWFire: [[paper](https://arxiv.org/abs/1506.03495)] [[dataset](https://bitbucket.org/gbdi/bowfire-dataset/src/master/)]
     1. Fire: 119 images
@@ -66,6 +65,7 @@
     - "Other" are potential false positive objects such as vehicle lights, sunlight, metal lamps, etc.
 
 ### Wild
+- [fire-detection-from-images](https://github.com/robmarkcole/fire-detection-from-images)
 - Fire and Smoke Dataset: [dataset](https://www.kaggle.com/datasets/dataclusterlabs/fire-and-smoke-dataset?resource=download)
 - FIRE Dataset: [dataset](https://www.kaggle.com/datasets/phylake1337/fire-dataset)
 - Fire Detection from CCTV: [dataset](https://www.kaggle.com/datasets/ritupande/fire-detection-from-cctv)
@@ -73,8 +73,8 @@
 
 ### Unavailable
 - Flame and Smoke Detection Dataset
-    - *This dataset was withdrawn and I can't find anwhere in which it can be downloaded. Would be clutch if we could find it because it would be very useful.*
-    1. 100,000 flame and smoke images from various sources: surviellance cameras, drones, satellite, computer graphics, etc.
+    - *This dataset was withdrawn and I can't find it anywhere in which it can be downloaded. Would be clutch if we could find it because it would be very useful.*
+    1. 100,000 flame and smoke images from various sources: surveillance cameras, drones, satellite, computer graphics, etc.
 
 ## Questions
 - There should be a single model for detecting both smoke and fire correct? Or one model for each task?

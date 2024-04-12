@@ -1,0 +1,7 @@
+google-cloud-storage
+matplotlib
+numpy
+opencv-python
+pyav
+python-dotenv
+python-magic

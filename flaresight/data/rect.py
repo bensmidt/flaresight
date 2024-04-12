@@ -1,0 +1,6 @@
+"""
+Rectangle class.
+"""
+
+
+
