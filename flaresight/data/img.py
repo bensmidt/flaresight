@@ -42,7 +42,9 @@ class Rect:
         str
             String representation of the rectangle.
         """
-        return "[x: {}, y: {}, width: {}, height: {}]".format(self.x, self.y, self.width, self.height)
+        return "[x: {}, y: {}, width: {}, height: {}]".format(
+            self.x, self.y, self.width, self.height
+        )
 
     def __eq__(self, other) -> bool:
         """
@@ -153,7 +155,7 @@ class ROI:
         str
             String representation of the region of interest.
         """
-        return "{}: {}".format(self._label, self._rect)
+        return "Label: {} - Box: {}".format(self._label, self._rect)
 
 
 class Image:

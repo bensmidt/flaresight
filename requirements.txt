@@ -2,6 +2,7 @@ google-cloud-storage
 matplotlib
 numpy
 opencv-python
+pandas
 pyav
 python-dotenv
 python-magic

@@ -38,8 +38,6 @@ class GCloudBlob:
             Name of the bucket the blob is located in
         path: list[str]
             Complete path within the bucket where the blob is stored
-            Ex: ['006ek4HPQjRW9o2UbfvLyGIedaz2', '564cfa8e-45eb-4ec4-9f55-fc5cead468aa',
-                '05654cce-fcb0-4a36-a257-cf118abc610a']
 
         Returns
         -------
@@ -49,7 +47,7 @@ class GCloudBlob:
 
         self._client = storage.Client()
         self._bucket = self._client.bucket(bucket_name)
-        self._blob = storage.Blob(bucket=self._bucket, name=os.path.join(*self._path))
+        self._blob = storage.Blob(bucket=self._bucket, name="/".join(self._path))
         self._service_account_email = Secrets().GCLOUD_SERVICE_ACCOUNT_EMAIL
 
     @property
@@ -131,7 +129,7 @@ class GCloudBlob:
             None if Blob exists in Cloud Storage, a descriptive error message if not.
         """
         if not self._blob.exists(self._client):
-            return "Blob '{}' does not exist in bucket '{}.".format(
+            return "Blob '{}' does not exist in bucket '{}'.".format(
                 self._path, self._bucket.name
             )
 

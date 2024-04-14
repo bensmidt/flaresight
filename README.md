@@ -4,8 +4,13 @@
 - Video Fire Detection Methods Based on Deep Learning: Datasets, Methods, and Future Directions (2023) [[paper](https://www.mdpi.com/2571-6255/6/8/315)]
 ### Papers
 - An Automatic Fire Detection System Based on Deep Convolutional Neural Networks for Low-power, Resource-constrained Devices (2022) [[paper](https://link.springer.com/article/10.1007/s00521-022-07467-z)]
+- Machine Learning-Based Fire Detection: A Comprehensive Review and Evaluation of Classification Models (2023) [[paper]](https://joiv.org/index.php/joiv/article/view/2332)
 
-## Datasets
+## Fire Localization Datasets
+- Smoke Detection Dataset: [dataset](https://www.kaggle.com/datasets/deepcontractor/smoke-detection-dataset?resource=download)
+
+
+## Fire Detection Datasets
 ### Academia
 - VisiFire: [[dataset](http://signal.ee.bilkent.edu.tr/VisiFire/Demo/SampleClips.html)]
     1. Flame: 13 videos
@@ -65,11 +70,12 @@
     - "Other" are potential false positive objects such as vehicle lights, sunlight, metal lamps, etc.
 
 ### Wild
-- [fire-detection-from-images](https://github.com/robmarkcole/fire-detection-from-images)
+- Fire Detection from Images: [dataset](https://github.com/robmarkcole/fire-detection-from-images)
 - Fire and Smoke Dataset: [dataset](https://www.kaggle.com/datasets/dataclusterlabs/fire-and-smoke-dataset?resource=download)
 - FIRE Dataset: [dataset](https://www.kaggle.com/datasets/phylake1337/fire-dataset)
 - Fire Detection from CCTV: [dataset](https://www.kaggle.com/datasets/ritupande/fire-detection-from-cctv)
 - fireNET: [dataset](https://github.com/OlafenwaMoses/FireNET?tab=readme-ov-file)
+- Yolov5 Fire Detection [dataset](https://github.com/spacewalk01/yolov5-fire-detection)
 
 ### Unavailable
 - Flame and Smoke Detection Dataset
