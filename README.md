@@ -1,3 +1,38 @@
+## Overview
+### General
+
+All source code is located in `flaresight`. Sample usage of most of the source code can be found in the `sample_usage` directory. 
+
+**Beware** that I've not kept the sample_usage up to date. Much of this code was ported in from a previous python project I was working on, so you may face knick knack import and dependency errors for many of the notebooks. However, only minor fixes should be required to use them. The source code is verified to work.
+
+You can ignore all source code directories except for `data` and `training`. These are the only directories particularly relevant to our project. The rest is just helper code for Google Cloud Platform (GCP) and file system manipulation.
+
+### Installation
+
+I use VSCode and I highly recommend you use it as well. It provides a significantly better notebook experience than Jupyter Notebooks (IMO). You can also use Colab if you really want to but it presents additional environment considerations and setup that I don't like dealing with.
+
+1. Create your [virtual environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#create-and-use-virtual-environments)
+    - This should be like 2 terminal commands (1 for creating the virtual environment and 1 for activating it). If you're using more commands than this you're doing it wrong
+
+1. Install Python dependencies. <br></br> *Make sure your virtual environment is activated first.*
+    ```bash {{ language: 'python' }}
+    pip install -r requirements.txt
+    ```
+
+1. Install [libmagic](https://github.com/ahupp/python-magic?tab=readme-ov-file#debianubuntu)
+
+### Data
+
+The sensor data used for determining whether there is a fire is located in this repository in the `sensor_data` directory. The object detection data is located in a GCP bucket. You will have to download the data from this bucket (I can set you up with the proper credentials) or from the original source below to be able to use it in this repository.
+
+### Getting Started
+
+For exploring and visualizing the data, navigate to the `flaresight/sample_usage/data` directory. `detection.ipynb` contains code for visualizing yolo-labeled datasets and `localization.ipynb` contains code for exploring the sensor datasets we're using. These are still a work in progress so don't expect too much for now.
+
+I'll also be adding code to the `flaresight/sample_usage/data` directory for sample training code. However, I've yet to do this as of now. I'll update this document when I do.
+
+
+
 ## Literature
 ### Surveys
 - Survey of Modern Deep Learning Based Object Detection Models (Apr 2021) [[paper](https://www.sciencedirect.com/science/article/abs/pii/S1051200422001312?fr=RR-2&ref=pdf_download&rr=8712ed373c681454)]
@@ -6,12 +41,15 @@
 - An Automatic Fire Detection System Based on Deep Convolutional Neural Networks for Low-power, Resource-constrained Devices (2022) [[paper](https://link.springer.com/article/10.1007/s00521-022-07467-z)]
 - Machine Learning-Based Fire Detection: A Comprehensive Review and Evaluation of Classification Models (2023) [[paper]](https://joiv.org/index.php/joiv/article/view/2332)
 
-## Fire Localization Datasets
+## Sensor Datasets
+### Wild
+*Datasets that I've found "in the wild". They may or may not be used by researchers but I haven't verified whether they are or aren't.*
 - Smoke Detection Dataset: [dataset](https://www.kaggle.com/datasets/deepcontractor/smoke-detection-dataset?resource=download)
 
 
-## Fire Detection Datasets
+## Image / Video Datasets
 ### Academia
+*Datasets that I've found used by researchers in published academic journals.*
 - VisiFire: [[dataset](http://signal.ee.bilkent.edu.tr/VisiFire/Demo/SampleClips.html)]
     1. Flame: 13 videos
     1. Smoke: 1 vidoes
@@ -70,6 +108,7 @@
     - "Other" are potential false positive objects such as vehicle lights, sunlight, metal lamps, etc.
 
 ### Wild
+*Datasets that I've found "in the wild". They may or may not be used by researchers but I haven't verified whether they are or aren't.*
 - Fire Detection from Images: [dataset](https://github.com/robmarkcole/fire-detection-from-images)
 - Fire and Smoke Dataset: [dataset](https://www.kaggle.com/datasets/dataclusterlabs/fire-and-smoke-dataset?resource=download)
 - FIRE Dataset: [dataset](https://www.kaggle.com/datasets/phylake1337/fire-dataset)
@@ -78,9 +117,7 @@
 - Yolov5 Fire Detection [dataset](https://github.com/spacewalk01/yolov5-fire-detection)
 
 ### Unavailable
+*Datasets that look promising but couldn't be found for download.*
 - Flame and Smoke Detection Dataset
     - *This dataset was withdrawn and I can't find it anywhere in which it can be downloaded. Would be clutch if we could find it because it would be very useful.*
     1. 100,000 flame and smoke images from various sources: surveillance cameras, drones, satellite, computer graphics, etc.
-
-## Questions
-- There should be a single model for detecting both smoke and fire correct? Or one model for each task?
