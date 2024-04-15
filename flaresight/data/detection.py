@@ -1,5 +1,5 @@
 """
-Training Fire Detection Model
+Exploring and Visualization Fire Detection Datasets
 """
 import matplotlib.pyplot as plt
 import numpy as np

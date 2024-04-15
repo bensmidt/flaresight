@@ -4,7 +4,14 @@ Utilities for image processing.
 # standard library imports
 import sys
 
+# current package imports
+from .colors import *
+
+# local package imports
+from filesys.file import File
+
 # 3rd party imports
+import cv2
 import numpy as np
 
 
@@ -324,6 +331,36 @@ class Image:
         """
         self._rois.append(roi)
 
+    def add_rois_from_file(self, label_file: File) -> None:
+        """
+        Add the regions of interest (ROIs) to the image from a file containing the ROIs.
+        Assumes a text file with YOLO format (for now).
+
+        Parameters
+        ----------
+        img: Image
+            Image to add ROIs to.
+        label_file: File
+            File containing the ROIs.
+
+        Returns
+        -------
+        None
+        """
+        data = label_file.read()
+
+        for line in data.split("\n"):
+            if line:
+                labels = line.split(" ")
+                labels[1] = float(labels[1])  # x
+                labels[2] = float(labels[2])  # y
+                labels[3] = float(labels[3])  # w
+                labels[4] = float(labels[4])  # h
+                rect = Rect()
+                rect.set_from_yolo(labels[1:], self.width, self.height)
+                roi = ROI(rect, labels[0])
+                self.add_roi(roi)
+
     @property
     def rois(self) -> list[ROI]:
         """
@@ -339,3 +376,38 @@ class Image:
             The regions of interest in the image.
         """
         return self._rois
+
+    def get_img_with_bounding_boxes(
+        self,
+        colors: dict[str, tuple[int, int, int]] = {},
+        default_color: tuple[int, int, int] = GREEN,
+    ) -> np.ndarray:
+        """
+        Get the image with the bounding boxes drawn on it.
+
+        Parameters
+        ----------
+        colors: dict
+            A dictionary of colors to use for the bounding boxes.
+
+        Returns
+        -------
+        np.ndarray
+            The image with the bounding boxes drawn on it.
+        """
+        img_with_boxes = self._image.copy()
+
+        for roi in self._rois:
+            if (roi.label in colors):
+                color = colors[roi.label]
+            else:
+                color = default_color
+            img_with_boxes = cv2.rectangle(
+                img_with_boxes,
+                (roi.box.x, roi.box.y),
+                (roi.box.x + roi.box.width, roi.box.y + roi.box.height),
+                color,
+                1
+            )
+
+        return img_with_boxes
