@@ -3,7 +3,7 @@
 
 All source code is located in `flaresight`. Sample usage of most of the source code can be found in the `sample_usage` directory. 
 
-**Beware** that I've not kept the sample_usage up to date. Much of this code was ported in from a previous python project I was working on, so you may face knick knack import and dependency errors for many of the notebooks. However, only minor fixes should be required to use them. The source code is verified to work.
+**Beware** that I've not kept the `sample_usage` up to date. Much of this code was ported in from a previous python project I was working on, so you may face knick knack import and dependency errors for many of the notebooks. However, only minor fixes should be required to use them. The source code is verified to work.
 
 You can ignore all source code directories except for `data` and `training`. These are the only directories particularly relevant to our project. The rest is just helper code for Google Cloud Platform (GCP) and file system manipulation.
 
@@ -44,7 +44,7 @@ I'll also be adding code to the `flaresight/sample_usage/data` directory for sam
 ## Sensor Datasets
 ### Wild
 *Datasets that I've found "in the wild". They may or may not be used by researchers but I haven't verified whether they are or aren't.*
-- Smoke Detection Dataset: [dataset](https://www.kaggle.com/datasets/deepcontractor/smoke-detection-dataset?resource=download)
+- Smoke Detection Dataset: [[dataset](https://www.kaggle.com/datasets/deepcontractor/smoke-detection-dataset?resource=download)] [[article](https://www.hackster.io/stefanblattmann/real-time-smoke-detection-with-ai-based-sensor-fusion-1086e6)]
 
 
 ## Image / Video Datasets

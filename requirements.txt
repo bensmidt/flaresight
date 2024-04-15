@@ -6,3 +6,4 @@ pandas
 pyav
 python-dotenv
 python-magic
+scikit-learn
