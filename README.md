@@ -23,7 +23,9 @@ I use VSCode and I highly recommend you use it as well. It provides a significan
 
 ### Data
 
-The sensor data used for determining whether there is a fire is located in this repository in the `sensor_data` directory. The object detection data is located in a GCP bucket. You will have to download the data from this bucket (I can set you up with the proper credentials) or from the original source below to be able to use it in this repository.
+The sensor data used for determining whether there is a fire is located in this repository in the `sensor_data` directory.
+
+The 
 
 ### Getting Started
 
