@@ -48,14 +48,14 @@ Next install the dependencies into a virtual environment
 ```sh
 cd yolov5
 python3 -m venv env # create the virtual environment at /yolov5/env
+source env/bin/activate
 python3 -m pip install -r requirements.txt # install yolov5 dependencies 
 cd ..
-python3 -m pip install -r requirements.txt 3 # install the flaresight dependencies
+python3 -m pip install -r requirements.txt # install the flaresight dependencies
 ```
 
-Navigate to the `sample_usage/inference/localization.ipynb` notebook. You may have to install
-some notebook related packages. Make sure you select the Kernel we just installed (`yolov5/env/bin/python`)
-with the necessary dependencies when you start the notebook.
+Navigate to the `sample_usage/inference/localization.ipynb` notebook. You may be prompted to install
+some notebook related packages (`ipykernel` and such). After doing so, make sure you select the Kernel we just installed (`yolov5/env/bin/python`) with the necessary dependencies when you start the notebook.
 
 Initialize all the setup cells. Change the `INFERENCE_FILE_PATH` to point to a video you
 would like to perform inference on. The `sample_usage/data/collection.ipynb` notebook contains
