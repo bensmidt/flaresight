@@ -1,13 +1,13 @@
-## Overview
-### General
+# Overview
+## General
 
 All source code is located in `flaresight`. Sample usage of most of the source code can be found in the `sample_usage` directory. 
 
-**Beware** that I've not kept the `sample_usage` up to date. Much of this code was ported in from a previous python project I was working on, so you may face knick knack import and dependency errors for many of the notebooks. However, only minor fixes should be required to use them. The source code is verified to work.
+**Beware** that I've not kept the `sample_usage` up to date for every module. Much of this code was ported in from a previous python project I was working on, so you may face knick knack import and dependency errors for many of the notebooks. However, only minor fixes should be required to use them. The source code is verified to work.
 
 You can ignore all source code directories except for `data` and `training`. These are the only directories particularly relevant to our project. The rest is just helper code for Google Cloud Platform (GCP) and file system manipulation.
 
-### Installation
+## Installation
 
 I use VSCode and I highly recommend you use it as well. It provides a significantly better notebook experience than Jupyter Notebooks (IMO). You can also use Colab if you really want to but it presents additional environment considerations and setup that I don't like dealing with.
 
@@ -21,18 +21,49 @@ I use VSCode and I highly recommend you use it as well. It provides a significan
 
 1. Install [libmagic](https://github.com/ahupp/python-magic?tab=readme-ov-file#debianubuntu)
 
-### Data
+## Data
 
 The sensor data used for determining whether there is a fire is located in this repository in the `sensor_data` directory.
 
-The 
+The image and video data for determining where the fire is, is too big to store in this repository. I will add instructions later for downloading the data.
 
-### Getting Started
+For exploring and visualizing the data, navigate to the `sample_usage/data` directory. `detection.ipynb` contains code for visualizing yolo-labeled datasets and `localization.ipynb` contains code for exploring the sensor datasets we're using. These are still a work in progress so don't expect too much for now.
 
-For exploring and visualizing the data, navigate to the `flaresight/sample_usage/data` directory. `detection.ipynb` contains code for visualizing yolo-labeled datasets and `localization.ipynb` contains code for exploring the sensor datasets we're using. These are still a work in progress so don't expect too much for now.
+## Training
 
-I'll also be adding code to the `flaresight/sample_usage/data` directory for sample training code. However, I've yet to do this as of now. I'll update this document when I do.
+The training notebooks are located in the `sample_usage/train` directory. I will add instructions later for the dependencies needed to replicate the training steps.
 
+## Inference
+
+The inference notebooks are located in the `sample_usage/visual` directory.
+
+To run the scripts, begin by cloning yolov5 within the root of this repository locally.
+
+```sh
+git clone https://github.com/ultralytics/yolov5.git 
+```
+
+Next install the dependencies into a virtual environment
+
+```sh
+cd yolov5
+python3 -m venv env # create the virtual environment at /yolov5/env
+python3 -m pip install -r requirements.txt # install yolov5 dependencies 
+cd ..
+python3 -m pip install -r requirements.txt 3 # install the flaresight dependencies
+```
+
+Navigate to the `sample_usage/inference/localization.ipynb` notebook. You may have to install
+some notebook related packages. Make sure you select the Kernel we just installed (`yolov5/env/bin/python`)
+with the necessary dependencies when you start the notebook.
+
+Initialize all the setup cells. Change the `INFERENCE_FILE_PATH` to point to a video you
+would like to perform inference on. The `sample_usage/data/collection.ipynb` notebook contains
+code for moving downloaded files to your chosen directories and transcoding them with ffmpeg ([installation](https://github.com/kkroening/ffmpeg-python/tree/master?tab=readme-ov-file#installing-ffmpeg)) 
+if needed (e.g. avi file -> mp4 file).
+
+After running the running the inference on the video, a new video with bounding boxes placed
+around the detected fire in the video will be located at `/yolov5/runs/detect/exp{NUM}/{YOUR_VIDEO}`.
 
 
 ## Literature
