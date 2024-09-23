@@ -160,4 +160,5 @@ cython_debug/
 #.idea/
 
 yolov5/
-yolov9
+yolov9/
+visual/
