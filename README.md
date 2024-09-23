@@ -35,7 +35,7 @@ The training notebooks are located in the `sample_usage/train` directory. I will
 
 ## Inference
 
-The inference notebooks are located in the `sample_usage/visual` directory.
+The inference notebooks are located in the `sample_usage/inference` directory.
 
 To run the scripts, begin by cloning yolov5 within the root of this repository locally.
 
